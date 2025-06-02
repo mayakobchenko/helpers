@@ -1,0 +1,402 @@
+[
+  {
+    "text": "Brain",
+    "link": "https://research.com/journal/brain"
+  },
+  {
+    "text": "Neuron",
+    "link": "https://research.com/journal/neuron"
+  },
+  {
+    "text": "Nature Neuroscience",
+    "link": "https://research.com/journal/nature-neuroscience"
+  },
+  {
+    "text": "NeuroImage",
+    "link": "https://research.com/journal/neuroimage-1"
+  },
+  {
+    "text": "Molecular Psychiatry",
+    "link": "https://research.com/journal/molecular-psychiatry"
+  },
+  {
+    "text": "Biological Psychiatry",
+    "link": "https://research.com/journal/biological-psychiatry"
+  },
+  {
+    "text": "eLife",
+    "link": "https://research.com/journal/elife"
+  },
+  {
+    "text": "Journal of Neuroscience",
+    "link": "https://research.com/journal/journal-of-neuroscience"
+  },
+  {
+    "text": "Cerebral Cortex",
+    "link": "https://research.com/journal/cerebral-cortex"
+  },
+  {
+    "text": "Annals of Neurology",
+    "link": "https://research.com/journal/annals-of-neurology"
+  },
+  {
+    "text": "Nature Reviews Neuroscience",
+    "link": "https://research.com/journal/nature-reviews-neuroscience"
+  },
+  {
+    "text": "Human Brain Mapping",
+    "link": "https://research.com/journal/human-brain-mapping-1"
+  },
+  {
+    "text": "Clinical Neurophysiology",
+    "link": "https://research.com/journal/clinical-neurophysiology"
+  },
+  {
+    "text": "Epilepsia",
+    "link": "https://research.com/journal/epilepsia"
+  },
+  {
+    "text": "Alzheimer's and Dementia",
+    "link": "https://research.com/journal/alzheimers-and-dementia"
+  },
+  {
+    "text": "Translational Psychiatry",
+    "link": "https://research.com/journal/translational-psychiatry"
+  },
+  {
+    "text": "Trends in Cognitive Sciences",
+    "link": "https://research.com/journal/trends-in-cognitive-sciences"
+  },
+  {
+    "text": "Nature Human Behaviour",
+    "link": "https://research.com/journal/nature-human-behaviour"
+  },
+  {
+    "text": "Neuroscience and Biobehavioral Reviews",
+    "link": "https://research.com/journal/neuroscience-and-biobehavioral-reviews"
+  },
+  {
+    "text": "NeuroImage: Clinical",
+    "link": "https://research.com/journal/neuroimage-clinical"
+  },
+  {
+    "text": "Neuropsychopharmacology",
+    "link": "https://research.com/journal/neuropsychopharmacology"
+  },
+  {
+    "text": "Brain Stimulation",
+    "link": "https://research.com/journal/brain-stimulation"
+  },
+  {
+    "text": "Neurobiology of Aging",
+    "link": "https://research.com/journal/neurobiology-of-aging"
+  },
+  {
+    "text": "Movement Disorders",
+    "link": "https://research.com/journal/movement-disorders"
+  },
+  {
+    "text": "Nature Reviews Neurology",
+    "link": "https://research.com/journal/nature-reviews-neurology"
+  },
+  {
+    "text": "Trends in Neurosciences",
+    "link": "https://research.com/journal/trends-in-neurosciences"
+  },
+  {
+    "text": "Frontiers in Neuroscience",
+    "link": "https://research.com/journal/frontiers-in-neuroscience"
+  },
+  {
+    "text": "Frontiers in Neurology",
+    "link": "https://research.com/journal/frontiers-in-neurology"
+  },
+  {
+    "text": "Biological Psychiatry: Cognitive Neuroscience and Neuroimaging",
+    "link": "https://research.com/journal/biological-psychiatry-cognitive-neuroscience-and-neuroimaging"
+  },
+  {
+    "text": "Journal of Alzheimer's Disease",
+    "link": "https://research.com/journal/journal-of-alzheimers-disease"
+  },
+  {
+    "text": "Cortex",
+    "link": "https://research.com/journal/cortex"
+  },
+  {
+    "text": "Neurobiology of Disease",
+    "link": "https://research.com/journal/neurobiology-of-disease"
+  },
+  {
+    "text": "Frontiers in Human Neuroscience",
+    "link": "https://research.com/journal/frontiers-in-human-neuroscience"
+  },
+  {
+    "text": "Brain Structure and Function",
+    "link": "https://research.com/journal/brain-structure-and-function"
+  },
+  {
+    "text": "Alzheimer's Research and Therapy",
+    "link": "https://research.com/journal/alzheimers-research-and-therapy"
+  },
+  {
+    "text": "Pain",
+    "link": "https://research.com/journal/pain"
+  },
+  {
+    "text": "Alzheimer's and Dementia: Diagnosis, Assessment and Disease Monitoring",
+    "link": "https://research.com/journal/alzheimers-and-dementia-diagnosis-assessment-and-disease-monitoring"
+  },
+  {
+    "text": "Frontiers in Aging Neuroscience",
+    "link": "https://research.com/journal/frontiers-in-aging-neuroscience"
+  },
+  {
+    "text": "Current Opinion in Neurobiology",
+    "link": "https://research.com/journal/current-opinion-in-neurobiology"
+  },
+  {
+    "text": "European Journal of Neuroscience",
+    "link": "https://research.com/journal/european-journal-of-neuroscience"
+  },
+  {
+    "text": "Glia",
+    "link": "https://research.com/journal/glia"
+  },
+  {
+    "text": "Brain Imaging and Behavior",
+    "link": "https://research.com/journal/brain-imaging-and-behavior"
+  },
+  {
+    "text": "Journal of Neurology",
+    "link": "https://research.com/journal/journal-of-neurology"
+  },
+  {
+    "text": "eNeuro",
+    "link": "https://research.com/journal/eneuro"
+  },
+  {
+    "text": "Frontiers in Cellular Neuroscience",
+    "link": "https://research.com/journal/frontiers-in-cellular-neuroscience"
+  },
+  {
+    "text": "Epilepsy and Behavior",
+    "link": "https://research.com/journal/epilepsy-and-behavior"
+  },
+  {
+    "text": "Neuropharmacology",
+    "link": "https://research.com/journal/neuropharmacology"
+  },
+  {
+    "text": "Epilepsia Open",
+    "link": "https://research.com/journal/epilepsia-open"
+  },
+  {
+    "text": "Sleep",
+    "link": "https://research.com/journal/sleep"
+  },
+  {
+    "text": "Neuroscience",
+    "link": "https://research.com/journal/neuroscience"
+  },
+  {
+    "text": "Journal of Comparative Neurology",
+    "link": "https://research.com/journal/journal-of-comparative-neurology"
+  },
+  {
+    "text": "Molecular Neurodegeneration",
+    "link": "https://research.com/journal/molecular-neurodegeneration"
+  },
+  {
+    "text": "Annual Review of Neuroscience",
+    "link": "https://research.com/journal/annual-review-of-neuroscience"
+  },
+  {
+    "text": "Seizure : the journal of the British Epilepsy Association",
+    "link": "https://research.com/journal/seizure-the-journal-of-the-british-epilepsy-association"
+  },
+  {
+    "text": "Progress in Neurobiology",
+    "link": "https://research.com/journal/progress-in-neurobiology"
+  },
+  {
+    "text": "Journal of Neuroinflammation",
+    "link": "https://research.com/journal/journal-of-neuroinflammation"
+  },
+  {
+    "text": "Journal of Neurophysiology",
+    "link": "https://research.com/journal/journal-of-neurophysiology"
+  },
+  {
+    "text": "Network Neuroscience",
+    "link": "https://research.com/journal/network-neuroscience"
+  },
+  {
+    "text": "Brain Communications",
+    "link": "https://research.com/journal/brain-communications"
+  },
+  {
+    "text": "Developmental Cognitive Neuroscience",
+    "link": "https://research.com/journal/developmental-cognitive-neuroscience"
+  },
+  {
+    "text": "Cerebellum",
+    "link": "https://research.com/journal/cerebellum"
+  },
+  {
+    "text": "Journal of Cognitive Neuroscience",
+    "link": "https://research.com/journal/journal-of-cognitive-neuroscience"
+  },
+  {
+    "text": "Molecular Neurobiology",
+    "link": "https://research.com/journal/molecular-neurobiology"
+  },
+  {
+    "text": "Epilepsy Research",
+    "link": "https://research.com/journal/epilepsy-research"
+  },
+  {
+    "text": "Frontiers in Neuroinformatics",
+    "link": "https://research.com/journal/frontiers-in-neuroinformatics"
+  },
+  {
+    "text": "Journal of Neural Engineering",
+    "link": "https://research.com/journal/journal-of-neural-engineering"
+  },
+  {
+    "text": "Neuropsychologia",
+    "link": "https://research.com/journal/neuropsychologia"
+  },
+  {
+    "text": "Frontiers in Molecular Neuroscience",
+    "link": "https://research.com/journal/frontiers-in-molecular-neuroscience"
+  },
+  {
+    "text": "Social Cognitive and Affective Neuroscience",
+    "link": "https://research.com/journal/social-cognitive-and-affective-neuroscience"
+  },
+  {
+    "text": "Hippocampus",
+    "link": "https://research.com/journal/hippocampus"
+  },
+  {
+    "text": "Acta Neuropathologica Communications",
+    "link": "https://research.com/journal/acta-neuropathologica-communications"
+  },
+  {
+    "text": "Journal of Neurotrauma",
+    "link": "https://research.com/journal/journal-of-neurotrauma"
+  },
+  {
+    "text": "Current Opinion in Behavioral Sciences",
+    "link": "https://research.com/journal/current-opinion-in-behavioral-sciences"
+  },
+  {
+    "text": "Frontiers in Neural Circuits",
+    "link": "https://research.com/journal/frontiers-in-neural-circuits"
+  },
+  {
+    "text": "Brain Topography",
+    "link": "https://research.com/journal/brain-topography"
+  },
+  {
+    "text": "Progress in Neuro-Psychopharmacology and Biological Psychiatry",
+    "link": "https://research.com/journal/progress-in-neuro-psychopharmacology-and-biological-psychiatry"
+  },
+  {
+    "text": "Psychophysiology",
+    "link": "https://research.com/journal/psychophysiology"
+  },
+  {
+    "text": "Sleep Medicine Reviews",
+    "link": "https://research.com/journal/sleep-medicine-reviews"
+  },
+  {
+    "text": "Frontiers in Behavioral Neuroscience",
+    "link": "https://research.com/journal/frontiers-in-behavioral-neuroscience"
+  },
+  {
+    "text": "Neurological Sciences",
+    "link": "https://research.com/journal/neurological-sciences"
+  },
+  {
+    "text": "Behavioural Brain Research",
+    "link": "https://research.com/journal/behavioural-brain-research"
+  },
+  {
+    "text": "Experimental Neurology",
+    "link": "https://research.com/journal/experimental-neurology"
+  },
+  {
+    "text": "Brain and Behavior",
+    "link": "https://research.com/journal/brain-and-behavior"
+  },
+  {
+    "text": "Neuroscientist",
+    "link": "https://research.com/journal/neuroscientist"
+  },
+  {
+    "text": "Neuroscience Letters",
+    "link": "https://research.com/journal/neuroscience-letters"
+  },
+  {
+    "text": "Journal of Neural Transmission",
+    "link": "https://research.com/journal/journal-of-neural-transmission"
+  },
+  {
+    "text": "Neurotherapeutics",
+    "link": "https://research.com/journal/neurotherapeutics"
+  },
+  {
+    "text": "Journal of Neuroscience Methods",
+    "link": "https://research.com/journal/journal-of-neuroscience-methods"
+  },
+  {
+    "text": "Frontiers in Neuroanatomy",
+    "link": "https://research.com/journal/frontiers-in-neuroanatomy"
+  },
+  {
+    "text": "Journal of Sleep Research",
+    "link": "https://research.com/journal/journal-of-sleep-research"
+  },
+  {
+    "text": "Neurorehabilitation and Neural Repair",
+    "link": "https://research.com/journal/neurorehabilitation-and-neural-repair"
+  },
+  {
+    "text": "Molecular Autism",
+    "link": "https://research.com/journal/molecular-autism"
+  },
+  {
+    "text": "Epileptic Disorders",
+    "link": "https://research.com/journal/epileptic-disorders"
+  },
+  {
+    "text": "Alzheimer's and Dementia: Translational Research and Clinical Interventions",
+    "link": "https://research.com/journal/alzheimers-and-dementia-translational-research-and-clinical-interventions"
+  },
+  {
+    "text": "Current Opinion in Neurology",
+    "link": "https://research.com/journal/current-opinion-in-neurology"
+  },
+  {
+    "text": "Brain Sciences",
+    "link": "https://research.com/journal/brain-sciences"
+  },
+  {
+    "text": "Neurobiology of Learning and Memory",
+    "link": "https://research.com/journal/neurobiology-of-learning-and-memory"
+  },
+  {
+    "text": "Journal of Neurochemistry",
+    "link": "https://research.com/journal/journal-of-neurochemistry"
+  },
+  {
+    "text": "Neuromodulation",
+    "link": "https://research.com/journal/neuromodulation"
+  },
+  {
+    "text": "International Journal of Neuropsychopharmacology",
+    "link": "https://research.com/journal/international-journal-of-neuropsychopharmacology"
+  }
+]

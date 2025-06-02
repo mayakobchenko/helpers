@@ -1,6 +1,7 @@
 #openminds schemas
 server/data/
-results.json
+*.json
+js_helpers/*.json
 # Logs
 logs
 *.log

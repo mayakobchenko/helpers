@@ -2,22 +2,19 @@
 //issue website blocking the script
 import fs from 'fs'
 import { Builder, By, until } from 'selenium-webdriver'
-const firefoxOptions = new firefox.Options();
-firefoxOptions.setPreference("browser.download.folderList", 2);
-firefoxOptions.setPreference("browser.download.dir", "/path/to/download/directory"); // Update to your desired download path
-firefoxOptions.setPreference("browser.download.manager.showWhenStarting", false);
-firefoxOptions.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/pdf, application/octet-stream"); // Add file types you expect to download
+//const firefoxOptions = new firefox.Options();
+//firefoxOptions.setPreference("browser.download.folderList", 2);
+//firefoxOptions.setPreference("browser.download.dir", "/path/to/download/directory"); // Update to your desired download path
+//firefoxOptions.setPreference("browser.download.manager.showWhenStarting", false);
+//firefoxOptions.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/pdf, application/octet-stream"); // Add file types you expect to download
 
 function wait(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds))}
 
 (async function scrapeOfficialLinks() {
     const journalsData = JSON.parse(fs.readFileSync('results.json', 'utf-8'))
-    //const driver = await new Builder().forBrowser('firefox').build(); // Use 'chrome' for Chrome browser
-    const driver = await new Builder()
-    .forBrowser('firefox')
-    .setFirefoxOptions(firefoxOptions)
-    .build()
+    const driver = await new Builder().forBrowser('firefox').build(); // Use 'chrome' for Chrome browser
+    //const driver = await new Builder().forBrowser('firefox').setFirefoxOptions(firefoxOptions).build()
     const results = []
     try {
         for (const journal of journalsData) {
@@ -29,7 +26,7 @@ function wait(milliseconds) {
                 const officialLinkElement = await driver.findElement(By.css(officialWebsiteSelector))
                 await officialLinkElement.click()
                 //await driver.executeScript(`window.open('${officialLink}', '_blank');`)
-                await wait(4000)
+                await wait(Math.random() * 6000 +2000)
 
                 const handles = await driver.getAllWindowHandles()
                 if (handles.length > 1) {
@@ -38,17 +35,11 @@ function wait(milliseconds) {
                     const officialLink = await driver.getCurrentUrl()
                     await driver.close()
                     await driver.switchTo().window(handles[0])
-                    return officialLink
+                    results.push({ text, officialLink })
+                    console.log(`Scraped Official link for ${text}: ${officialLink}`)
                 } else {
-                    console.warn('No new tab opened after clicking the Official Website button.');
-                }
-                //await driver.switchTo().window(handles[1])
-                //const officialLink = await driver.getCurrentUrl()
-                //await driver.close()
-                //await driver.switchTo().window(handles[0])
+                    console.warn('No new tab opened after clicking the Official Website button.')}
                 await driver.close()
-                results.push({ text, officialLink })
-                console.log(`Scraped Official link for ${text}: ${officialLink}`)
             } catch (innerError) {
                 console.error(`Failed to process ${text} (${link}): ${innerError.message}`)}           
             //await driver.wait(until.urlIs(officialLinkElement.getAttribute('href')), 5000)          

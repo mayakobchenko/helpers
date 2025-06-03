@@ -56,7 +56,7 @@ function wait(milliseconds) {
 
             console.log(`Scraped page ${page}`);
             // Wait between page requests
-            await wait(Math.random() * 3000 + 2000);  // Wait between 2 and 5 seconds
+            await wait(Math.random() * 5000 + 5000);  // Wait between 2 and 5 seconds
         }
 
         // Save results to a new JSON file

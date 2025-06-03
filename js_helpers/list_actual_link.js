@@ -1,40 +1,66 @@
-import fs from 'fs'; 
-import { Builder, By, until } from 'selenium-webdriver';
+//link to journals are under search page, Official website button
+//issue website blocking the script
+import fs from 'fs'
+import { Builder, By, until } from 'selenium-webdriver'
+const firefoxOptions = new firefox.Options();
+firefoxOptions.setPreference("browser.download.folderList", 2);
+firefoxOptions.setPreference("browser.download.dir", "/path/to/download/directory"); // Update to your desired download path
+firefoxOptions.setPreference("browser.download.manager.showWhenStarting", false);
+firefoxOptions.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/pdf, application/octet-stream"); // Add file types you expect to download
+
+function wait(milliseconds) {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))}
 
 (async function scrapeOfficialLinks() {
-    const journalsData = JSON.parse(fs.readFileSync('results.json', 'utf-8'));
-
-    const driver = await new Builder().forBrowser('firefox').build(); // Use 'chrome' for Chrome browser
-    const results = []; // Array to store results
-
+    const journalsData = JSON.parse(fs.readFileSync('results.json', 'utf-8'))
+    //const driver = await new Builder().forBrowser('firefox').build(); // Use 'chrome' for Chrome browser
+    const driver = await new Builder()
+    .forBrowser('firefox')
+    .setFirefoxOptions(firefoxOptions)
+    .build()
+    const results = []
     try {
-        // Iterate over each journal object
         for (const journal of journalsData) {
-            const { text, link } = journal; // Destructure text and link
-            
-            // Navigate to the journal link
-            await driver.get(link);
-            
-            // Wait for the "Official Website" button to be located
-            const officialWebsiteSelector = 'a.button[title="Official website"]' // Replace with the actual selector
-            await driver.wait(until.elementLocated(By.css(officialWebsiteSelector)), 5000);
-            
-            // Find the "Official Website" link
-            const officialLinkElement = await driver.findElement(By.css(officialWebsiteSelector));
-            const officialLink = await officialLinkElement.getAttribute('href'); // Extract the official website link
-            
-            // Push the combined result into the results array
-            results.push({ text, link, officialLink });
-        }
+            const { text, link } = journal
+            try {
+                await driver.get(link)
+                const officialWebsiteSelector = 'a.button[title="Official website"]'
+                await driver.wait(until.elementLocated(By.css(officialWebsiteSelector)), 5000)
+                const officialLinkElement = await driver.findElement(By.css(officialWebsiteSelector))
+                await officialLinkElement.click()
+                //await driver.executeScript(`window.open('${officialLink}', '_blank');`)
+                await wait(4000)
 
-        // Save results to a new JSON file
-        fs.writeFileSync('websites.json', JSON.stringify(results, null, 2), 'utf-8');
-        console.log('Results saved to output.json');
+                const handles = await driver.getAllWindowHandles()
+                if (handles.length > 1) {
+                    await driver.switchTo().window(handles[1])
+                    await wait(14000)
+                    const officialLink = await driver.getCurrentUrl()
+                    await driver.close()
+                    await driver.switchTo().window(handles[0])
+                    return officialLink
+                } else {
+                    console.warn('No new tab opened after clicking the Official Website button.');
+                }
+                //await driver.switchTo().window(handles[1])
+                //const officialLink = await driver.getCurrentUrl()
+                //await driver.close()
+                //await driver.switchTo().window(handles[0])
+                await driver.close()
+                results.push({ text, officialLink })
+                console.log(`Scraped Official link for ${text}: ${officialLink}`)
+            } catch (innerError) {
+                console.error(`Failed to process ${text} (${link}): ${innerError.message}`)}           
+            //await driver.wait(until.urlIs(officialLinkElement.getAttribute('href')), 5000)          
+            //const officialLink = await officialLinkElement.getAttribute('href')
+            await wait(Math.random() * 6000 + 14000)
+        }
+        fs.writeFileSync('websites.json', JSON.stringify(results, null, 2), 'utf-8')
+        console.log('Results saved to output.json')
 
     } catch (error) {
-        console.error('Error occurred:', error);
+        console.error('Error occurred:', error)
     } finally {
-        // Close the browser
-        await driver.quit();
+        await driver.quit()
     }
 })();

@@ -5,7 +5,8 @@ import fs from 'fs'
 (async function scrapeData() {
     const driver = await new Builder().forBrowser('firefox').build() // Use 'chrome' for Chrome browser
     try {
-        await driver.get('https://research.com/journals-rankings/neuroscience')
+        const baseUrl = 'https://research.com/journals-rankings/neuroscience'
+        await driver.get(baseUrl)
         const anchorSelector = 'a[title="Read more"]'
         await driver.wait(until.elementsLocated(By.css(anchorSelector)), 10000)
         const linkElements = await driver.findElements(By.css(anchorSelector))
@@ -13,9 +14,7 @@ import fs from 'fs'
         const results = []
         for (const linkElement of linkElements) {
             const text = await linkElement.getText()
-            const relativeLink = await linkElement.getAttribute('href')
-            
-            const baseUrl = 'https://research.com/journals-rankings/neuroscience' 
+            const relativeLink = await linkElement.getAttribute('href') 
             const fullLink = new URL(relativeLink, baseUrl).href
             results.push({ text, link: fullLink })
         }

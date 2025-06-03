@@ -7,7 +7,7 @@ function wait(milliseconds) {
 }
 
 (async function scrapeOfficialLinks() {
-    const journalsData = JSON.parse(fs.readFileSync('results.json', 'utf-8'))
+    const journalsData = JSON.parse(fs.readFileSync('results_allpages.json', 'utf-8'))
     const results = [];
     try {
         for (const journal of journalsData) {

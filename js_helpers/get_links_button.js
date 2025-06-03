@@ -37,5 +37,5 @@ function wait(milliseconds) {
     } catch (error) {
         console.error('Error occurred:', error);
     } 
-    await wait(Math.random() * 5000 + 50000)
+    //await wait(Math.random() * 5000)
 })();

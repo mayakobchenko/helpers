@@ -1,5 +1,5 @@
 #openminds schemas
-server/data/
+data/
 
 js_helpers/results.json
 js_helpers/results_allpages.json

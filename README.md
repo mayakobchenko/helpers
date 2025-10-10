@@ -22,3 +22,7 @@ $ node js_helpers/get_links_button.js
 # java_script_KG
 
 codes helping for interactions with ebrains KG
+
+```
+npm install dotenv
+```

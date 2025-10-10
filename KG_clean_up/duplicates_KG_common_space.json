@@ -1,0 +1,40 @@
+[
+   {
+      "identifier": "https://kg.ebrains.eu/api/instances/23b460b8-1c6e-46c0-a408-8eaab39909f1",
+      "familyName": "Bösch",
+      "givenName": "Fabian"
+   },
+   {
+      "identifier": "https://kg.ebrains.eu/api/instances/f83cdd93-031d-44e1-9843-c7090a0b3018",
+      "familyName": "Bösch",
+      "givenName": "Fabian"
+   },
+   {
+      "identifier": "https://kg.ebrains.eu/api/instances/79d92008-2812-45cb-84f7-6ac35dc5910f",
+      "familyName": "Küsters",
+      "givenName": "Anne"
+   },
+   {
+      "identifier": "https://kg.ebrains.eu/api/instances/fbed6150-4d41-45ff-83d6-38865f3e00b3",
+      "familyName": "Küsters",
+      "givenName": "Anne"
+   },
+   {
+      "identifier": "https://kg.ebrains.eu/api/instances/8372bbb5-1509-4432-a1ef-81080054b5bb",
+      "familyName": "Teleńczuk",
+      "givenName": "Bartosz"
+   },
+   {
+      "identifier": "https://kg.ebrains.eu/api/instances/a8e79aad-bc1f-4bd0-94f4-4ea5f6c11bf8",
+      "familyName": "Teleńczuk",
+      "givenName": "Bartosz"
+   },
+   {
+      "identifier": "https://kg.ebrains.eu/api/instances/a6ff4763-ac7b-47df-b93d-b0288301a7b0",
+      "familyName": "haleepfl"
+   },
+   {
+      "identifier": "https://kg.ebrains.eu/api/instances/d41647e9-8339-4d2d-ab6c-372d6718a79f",
+      "familyName": "haleepfl"
+   }
+]

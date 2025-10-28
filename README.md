@@ -26,3 +26,7 @@ codes helping for interactions with ebrains KG
 ```
 npm install dotenv
 ```
+
+codes used for clean up of the knowledge graph
+
+to access data in "In Progress" scope, I need my own token

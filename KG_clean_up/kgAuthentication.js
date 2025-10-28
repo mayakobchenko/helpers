@@ -5,12 +5,14 @@ dotenv.config({ path: './.env' })
 //const clientSecret = process.env.CLIENT_SECRET;
 const clientId = process.env.WIZARD_OIDC_CLIENT_ID
 const clientSecret = process.env.WIZARD_OIDC_CLIENT_SECRET
+const my_token = process.env.MAYA_EBRAIN_TOKEN
 
 export async function getRequestOptions() {
     try {
-        console.log(clientSecret)
-        console.log(clientId)
-        let token = await getTokenFromServiceAccount(clientSecret)
+        //console.log(clientSecret)
+        //console.log(clientId)
+        //let token = await getTokenFromServiceAccount(clientSecret)
+        const token = my_token
         const requestHeader = { 
             Accept: "*/*", 
             Authorization: "Bearer " + token, 
@@ -34,7 +36,7 @@ export async function getTokenFromServiceAccount(clientSecret) {
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 	    body: body}
     try{
-        const response = await fetch(endpointURL, requestOptions);
+        const response = await fetch(endpointURL, requestOptions)
         if (!response.ok) {
             throw new Error(`OIDC client is not allowed to fetch KG token: ${response.status}`)}
         const jsonData = await response.json()

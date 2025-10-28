@@ -1,5 +1,6 @@
 #openminds schemas
 data/
+KG_clean_up/duplicates_KG_common_space.json
 
 js_helpers/results.json
 js_helpers/results_allpages.json

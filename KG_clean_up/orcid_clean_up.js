@@ -19,13 +19,12 @@ fs.mkdir(OUTPUT_DIR, { recursive: true }, (err) => {
     
 const fetchCoreSchemaInstances = async () => {
     const requestOptions = await getRequestOptions()
-    const spaceName = "common"//"common"
-    const stage = "IN_PROGRESS" //"RELEASED"   //"IN_PROGRESS"
+    const spaceName = "common"
+    const stage = "IN_PROGRESS"   //"IN_PROGRESS"  "RELEASED" 
     const QUERY_PARAMS = [`stage=${stage}`, `space=${spaceName}`, "type=https://openminds.ebrains.eu/core/"]
-    const TYPE_NAME = "Person"
+    const TYPE_NAME = "ORCID"
     const queryUrl = `${API_BASE_URL}${API_ENDPOINT}?${QUERY_PARAMS.join("&")}${TYPE_NAME}`
-    console.log(queryUrl)
-    const propertyNames = ["familyName", "givenName", "digitalIdentifier"]
+    const propertyNames = ["identifier"]
         try {
             await fetchInstances(queryUrl, requestOptions, TYPE_NAME, propertyNames)
         } catch (error) {
@@ -37,6 +36,7 @@ async function fetchInstances(apiQueryUrl, requestOptions, typeName, propertyNam
         const response = await fetch(apiQueryUrl, requestOptions)
         if (response.status === 200) {
             const data = await response.json()
+           // console.log(data.data)
             await parseAndSaveData(data, typeName, propertyNames)
         } else { throw new Error('Error fetching instances for ' + typeName + '. Status code: ' + response.status)}
     } catch (error) {
@@ -47,29 +47,16 @@ async function fetchInstances(apiQueryUrl, requestOptions, typeName, propertyNam
 async function parseAndSaveData(data, typeName, propertyNameList) {
     let typeInstanceList = []
     try {
-        let orcidData
-            if (typeName == "Person") {
-                const orcidReleased = await loadJsonFile(path.join(OUTPUT_DIR, `ORCID_released.json`))
-                const orcidInProgress = await loadJsonFile(path.join(OUTPUT_DIR, `ORCID_in_progress.json`))
-            orcidData = orcidReleased + orcidInProgress
-        }
-        
         for (let thisInstance of data.data) {
-            let newInstance = { "identifier": thisInstance["@id"] }
+            let newInstance = { "uuid": thisInstance["@id"] }
             for (let propertyName of propertyNameList) {
                 const vocabName = `${OPENMINDS_VOCAB}/${propertyName}`
-            if (thisInstance[vocabName] !== undefined) {
-                if (typeName == "Person" && propertyName == "digitalIdentifier") {
-                    const findOrcid = orcidData.find(entry => entry.uuid === thisInstance[`${OPENMINDS_VOCAB}/digitalIdentifier`]["@id"])
-                    if (findOrcid !== undefined) {newInstance["orcid"] = findOrcid["identifier"]}
-                } else { newInstance[propertyName] = thisInstance[vocabName] }}
-            }
-
-            typeInstanceList.push(newInstance)
-
+                if (thisInstance[vocabName] !== undefined) {
+                    newInstance[propertyName] = thisInstance[vocabName]}}
+                typeInstanceList.push(newInstance)
         }
         const jsonStr = JSON.stringify(typeInstanceList, null, 2)
-        const filename = `${typeName}.json`;
+        const filename = `${typeName}.json`
         const filePath = path.join(OUTPUT_DIR, filename)
         await fs.promises.writeFile(filePath, jsonStr)
         console.log('File with instances for ' + typeName + ' written successfully');

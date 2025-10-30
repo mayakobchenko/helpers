@@ -48,10 +48,12 @@ async function parseAndSaveData(data, typeName, propertyNameList) {
     let typeInstanceList = []
     try {
         let orcidData
+        let orcidReleased
+        let orcidInProgress
             if (typeName == "Person") {
-                const orcidReleased = await loadJsonFile(path.join(OUTPUT_DIR, `ORCID_released.json`))
-                const orcidInProgress = await loadJsonFile(path.join(OUTPUT_DIR, `ORCID_in_progress.json`))
-            orcidData = orcidReleased + orcidInProgress
+                orcidReleased = await loadJsonFile(path.join(OUTPUT_DIR, `ORCID_released.json`))
+                orcidInProgress = await loadJsonFile(path.join(OUTPUT_DIR, `ORCID_in_progress.json`))
+            orcidData = [...orcidReleased, ...orcidInProgress]
         }
         
         for (let thisInstance of data.data) {
@@ -75,6 +77,17 @@ async function parseAndSaveData(data, typeName, propertyNameList) {
         console.log('File with instances for ' + typeName + ' written successfully');
     } catch (error) {
         console.error(`Error while parsing and saving data for ${typeName}:`, error)}
+}
+
+async function loadJsonFile(filePath) {
+    try {
+        const data = await fs.promises.readFile(filePath, 'utf8')
+        const jsonData = JSON.parse(data)
+        return jsonData
+    } catch (err) {
+        console.error('Error reading the file:', err)
+        throw err
+    }
 }
 
 await fetchCoreSchemaInstances()

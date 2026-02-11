@@ -1,8 +1,8 @@
-import dotenv from 'dotenv';
-import {getRequestOptions} from './kgAuthentication.js';
-import fetch from 'node-fetch';
+import dotenv from 'dotenv'
+import {getRequestOptions} from './kgAuthentication.js'
+import fetch from 'node-fetch'
 
-dotenv.config(); 
+dotenv.config()
 //const maya_token = process.env.MAYA_EBRAIN_TOKEN;
 //const token_maya = "Bearer " + maya_token;
 //const myHeaders = new Headers();

@@ -1,8 +1,8 @@
-import fetch from 'node-fetch';
-import dotenv from 'dotenv';
-dotenv.config();
-const clientId = process.env.OIDC_CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
+import fetch from 'node-fetch'
+import dotenv from 'dotenv'
+dotenv.config()
+const clientId = process.env.OIDC_CLIENT_ID
+const clientSecret = process.env.CLIENT_SECRET
 
 export async function getRequestOptions() {
     try{
@@ -43,7 +43,7 @@ export async function getTokenFromServiceAccount(clientSecret) {
             throw new Error('Could not fetch KG token');
           }
     } catch (error) {
-        throw new Error(`Failed to fetch token for KG: ${error.message}`);
+        throw new Error(`Failed to fetch token for KG: ${error.message}`)
     }
 }
 

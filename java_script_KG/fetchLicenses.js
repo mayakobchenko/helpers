@@ -1,25 +1,11 @@
-import fetch from 'node-fetch'
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+// https://core.kg.ebrains.eu/swagger-ui
+
 import {getRequestOptions} from './kg_auth_wizard_client.js'
 
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const OUTPUT_DIR = path.join(__dirname, '..', 'data', 'kg-instances')
 const OPENMINDS_VOCAB = "https://openminds.ebrains.eu/vocab"
 
 export async function fetchLicenses () {
     const requestOptions = await getRequestOptions()
-
-    const response = await fetch("https://core.kg.ebrains.eu/v3/users/me", requestOptions)
-    
-    // Check if authorization was successful, otherwise exit
-    if ( response.status == 401 ) {
-        console.log('Authorization with KG failed',response.status, response.statusText)
-    }
-
     const API_BASE_URL = "https://core.kg.ebrains.eu/"
     const API_ENDPOINT = "v3/instances"
     const QUERY_PARAMS = ["stage=RELEASED", "space=controlled", "type=https://openminds.ebrains.eu/core/License"]
@@ -29,10 +15,11 @@ export async function fetchLicenses () {
 
     try {
         const response = await fetch(queryUrl, requestOptions)
+        console.log(response)
         if (response.status === 200) {
             const data = await response.json()
-            parseAndSaveData(data, propertyNameList)
-            //console.log('licenses:', data)
+            //parseAndSaveData(data, propertyNameList)
+            console.log('licenses:', data)
         } 
         else { throw new Error('Error fetching licenses', response.status)}
     } catch (error) {
@@ -53,11 +40,8 @@ async function parseAndSaveData(data, propertyNameList) {
             if (!isEmpty) {
                 LicensesList.push(newInstance)}
         }
-        const jsonStr = JSON.stringify(LicensesList, null, 2);
-        const filename = "Licenses.json"
-        const filePath = path.join(OUTPUT_DIR, filename)
-        await fs.promises.writeFile(filePath, jsonStr);
-        console.log('File with licenses written successfully');
+        const jsonStr = JSON.stringify(LicensesList, null, 2)
+        console.log(jsonStr)
     } catch (error) {
         console.error(`Error while parsing and saving data for licenses`, error)}
 }

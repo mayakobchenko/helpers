@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Keycloak Demo</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Keycloak Demo</h1>
+      <div id="status">Initializing...</div>
+      <pre id="userinfo" style="white-space:pre-wrap"></pre>
+      <button id="logoutBtn" style="display:none">Logout</button>
+      <button id="tokenBtn" style="display:none">Show token</button>
+    </div>
+
+    <!-- UMD Keycloak from CDN exposes window.Keycloak -->
+    <script src="https://unpkg.com/keycloak-js/dist/keycloak.min.js"></script>
+
+    <!-- Your script adapted for CDN (non-module) -->
+    <script type="module" src="./start-keycloak.js"></script>
+  </body>
+</html>
+
+

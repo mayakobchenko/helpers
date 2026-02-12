@@ -1,0 +1,12 @@
+to try keycloak in the browser:
+
+npm init -y
+npm install keycloak-js
+npm install --save-dev vite
+
+package.json
+"scripts": {
+  "dev": "vite"
+}
+
+npm run dev

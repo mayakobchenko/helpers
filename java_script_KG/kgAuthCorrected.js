@@ -22,17 +22,22 @@ export async function getRequestOptions() {
 }
         
 export async function getTokenFromServiceAccount(clientSecret) {
-
-    let endpointURL = "https://iam.ebrains.eu/auth/realms/hbp/protocol/openid-connect/token";
-    let body = "grant_type=client_credentials&client_id=" + clientId + "&client_secret=" + clientSecret + "&scope=openid%20group%20roles%20email%20profile%20team";
-    let requestOptions = {
+//curl -X POST "https://iam.ebrains.eu/auth/realms/hbp/protocol/openid-connect/token"
+// -H "Content-Type: application/x-www-form-urlencoded"
+// -d "grant_type=client_credentials" -d "client_id=ebrains-dev-wizard-maya"
+// -d "client_secret=7xNIxEE7Hlt2xdfjQ6u8ZscEjuLirJop"
+// -d "scope=openid group roles email profile team"
+    
+    const endpointURL = "https://iam.ebrains.eu/auth/realms/hbp/protocol/openid-connect/token"
+    const body = "grant_type=client_credentials&client_id=" + clientId + "&client_secret=" + clientSecret + "&scope=openid%20group%20roles%20email%20profile%20team"
+    const requestOptions = {
 	    method: 'post',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 	    body: body
     };
 
     try{
-        let response = await fetch(endpointURL, requestOptions);
+        let response = await fetch(endpointURL, requestOptions)
         if (!response.ok) {
             throw new Error(`OIDC_CLIENT_ID is "restricted-access-email" cannot fetch KG token: ${response.status}`);
           }

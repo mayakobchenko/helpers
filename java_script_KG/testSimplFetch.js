@@ -13,10 +13,10 @@ wizardHeaders.append("Accept", '*/*')
 
 const url = "https://core.kg.ebrains.eu/v3/queries/de7e79ae-5b67-47bf-b8b0-8c4fa830348e/instances?stage=IN_PROGRESS&instanceId=54719155-54c7-4456-8987-36b7d5dce071";
 
-const myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-myHeaders.append("Authorization", token_maya);    
-myHeaders.append("Accept", '*/*');
+const myHeaders = new Headers()
+myHeaders.append("Content-Type", "application/json")
+myHeaders.append("Authorization", token_maya)  
+myHeaders.append("Accept", '*/*')
 //console.log(myHeaders);
 
 /*getDataVersionIdFromUrl = () => {

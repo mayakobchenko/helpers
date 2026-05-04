@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 
 const clientId = process.env.WIZARD_OIDC_CLIENT_ID
 const clientSecret = process.env.WIZARD_OIDC_CLIENT_SECRET
-console.log(clientId)
+//console.log(clientId)
 
 //curl -X POST "https://iam.ebrains.eu/auth/realms/hbp/protocol/openid-connect/token" -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials" -d "client_id=ebrains-dev-wizard-maya" -d "client_secret=7xNIxEE7Hlt2xdfjQ6u8ZscEjuLirJop" -d "scope=openid group roles email profile team"
         

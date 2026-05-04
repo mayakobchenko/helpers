@@ -2,6 +2,8 @@
 data/
 KG_clean_up/duplicates_KG_common_space.json
 
+person_example.json
+
 js_helpers/results.json
 js_helpers/results_allpages.json
 # Logs

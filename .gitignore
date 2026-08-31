@@ -1,6 +1,7 @@
 #openminds schemas
 data/
 KG_clean_up/duplicates_KG_common_space.json
+python_KG_clean_up/*.json
 
 person_example.json
 

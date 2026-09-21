@@ -2,19 +2,6 @@
 cleanup_duplicates.py — remove specimen/contribution records for a
 DatasetVersion before a clean resubmission.
 
-Background: a concurrent double-submission (fixed since — see the
-concurrency guard in pythonKGupload.js) caused several entity types that
-had no existence check at the time (SubjectGroup, TissueSampleCollection,
-and possibly Subject/TissueSampleState under a simultaneous DNS outage) to
-be created twice. Manually finding and deleting exactly the duplicate half
-in the KG UI is impractical at this scale. This script takes the more
-reliable approach: wipe every specimen/contribution record tied to this
-DatasetVersion (not the DatasetVersion or Dataset themselves, and NOT
-Person/ORCID records — those are shared/reusable and not part of the
-duplication bug), then resubmit the corrected JSON fresh with
-python_upload_json.py, which recreates everything correctly with the
-existence checks now in place.
-
 SAFETY: this is destructive. It only LISTS what it would delete by
 default. Nothing is deleted unless you pass --confirm.
 
@@ -135,10 +122,15 @@ def kg_patch(instance_url, attr):
 #   1. Clear DatasetVersion.studiedSpecimen / otherContribution first — the
 #      top-level entity that references everything else.
 #   2. Subject, TissueSample — these reference SubjectGroup/
-#      TissueSampleCollection (via isPartOf) and their own State.
+#      TissueSampleCollection (via isPartOf) and their own State(s).
 #   3. SubjectGroup, TissueSampleCollection — now nothing points to them.
-#   4. SubjectState, TissueSampleState — now nothing points to them either,
-#      since step 2/3 removed everything that referenced them.
+#   4. SubjectState, TissueSampleState, SubjectGroupState,
+#      TissueSampleCollectionState — now nothing points to any of these
+#      either, since step 2/3 removed every Subject/TissueSample/
+#      SubjectGroup/TissueSampleCollection that referenced them. A subject
+#      or sample with multiple states also has each state chained to the
+#      previous one via descendedFrom, but since every state in the chain
+#      gets deleted in this same pass, that doesn't block anything here.
 #   5. Contribution — referenced only by DatasetVersion, already cleared.
 
 DELETION_ORDER = [
@@ -148,6 +140,8 @@ DELETION_ORDER = [
     "TissueSampleCollection",
     "SubjectState",
     "TissueSampleState",
+    "SubjectGroupState",
+    "TissueSampleCollectionState",
     "Contribution",
 ]
 
